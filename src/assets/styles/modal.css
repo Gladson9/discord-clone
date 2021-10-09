@@ -1,0 +1,36 @@
+.modal__add__channel {
+  background-color: #36393f;
+  color: #fff;
+  width: 40%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.modal__add__channel,
+.modal__add__channel > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__add__channel > form > input {
+  width: 15rem;
+  background-color: #202124;
+  outline: none;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 2rem;
+  font-size: large;
+}
+
+.modal__add__channel > form > button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4752c4;
+  color: #fff;
+  cursor: pointer;
+}
