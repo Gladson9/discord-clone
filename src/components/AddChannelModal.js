@@ -12,9 +12,12 @@ const AddChannelModal = ({ handelOnClick }) => {
   const handleAddChannel = (e) => {
     e.preventDefault();
     if (input) {
-      db.collection("servers").doc(currentServer).collection("channels").add({
-        channelName: input,
-      });
+      db.collection("servers")
+        .doc(currentServer.id)
+        .collection("channels")
+        .add({
+          channelName: input,
+        });
       // db.collection("channels").add({
       //   channelName: input,
       // });
