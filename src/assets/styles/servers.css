@@ -1,0 +1,25 @@
+.servers {
+  background-color: #202225;
+}
+
+.server {
+  margin: 15px;
+  cursor: pointer;
+  background-color: #2f3137;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #138105;
+}
+
+.server > .MuiAvatar-root {
+  width: 35px;
+  height: 35px;
+}
+
+.homepage {
+  background-color: #5865f2;
+}

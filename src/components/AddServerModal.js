@@ -3,21 +3,18 @@ import Backdrop from "./Backdrop";
 import "../assets/styles/modal.css";
 import db from "../firebase";
 import { useSelector } from "react-redux";
-import { selectServer } from "../features/serverSlice";
-
-const AddChannelModal = ({ handelOnClick }) => {
+import { selectUser } from "../features/userSlice";
+const AddServerModal = ({ handelOnClick }) => {
   const [input, setInput] = useState("");
-  const currentServer = useSelector(selectServer);
+  const user = useSelector(selectUser);
 
-  const handleAddChannel = (e) => {
+  const handleAddServer = (e) => {
     e.preventDefault();
     if (input) {
-      db.collection("servers").doc(currentServer).collection("channels").add({
-        channelName: input,
+      db.collection("servers").add({
+        serverName: input,
+        createdBy: user,
       });
-      // db.collection("channels").add({
-      //   channelName: input,
-      // });
     }
     handelOnClick();
   };
@@ -34,10 +31,10 @@ const AddChannelModal = ({ handelOnClick }) => {
             value={input}
             onChange={handleInput}
             type="text"
-            placeholder="Channel name"
+            placeholder="Server name"
           />
-          <button type="submit" onClick={handleAddChannel}>
-            Create Channel
+          <button type="submit" onClick={handleAddServer}>
+            Create Server
           </button>
         </form>
       </div>
@@ -45,4 +42,4 @@ const AddChannelModal = ({ handelOnClick }) => {
   );
 };
 
-export default AddChannelModal;
+export default AddServerModal;

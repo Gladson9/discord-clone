@@ -1,0 +1,41 @@
+.users {
+  background-color: #2f3136;
+  flex: 0.15;
+  height: 100%;
+  margin-left: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.users__type {
+  padding-top: 15px;
+  padding-left: 15px;
+  color: #8e8f92;
+}
+.hidden {
+  display: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.user__name {
+  margin-left: 15px;
+  color: #8e8f92;
+}
+
+.users::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #2e3338;
+}
+
+.users::-webkit-scrollbar {
+  width: 12px;
+}
+
+.users::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #202225;
+}

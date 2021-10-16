@@ -4,12 +4,13 @@
   align-items: center;
   color: gray;
   border-bottom: 1px solid black;
+  height: 5vh;
 }
 
 .chat__header__hash {
   color: gray;
   font-size: 30px;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .chat__header__left > h3 {

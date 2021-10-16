@@ -1,18 +1,20 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 0.15;
   height: 100vh;
-  /* background-color: #2f3135; */
   background-color: #2f3137;
 }
 
 .sidebar__top {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 0 20px;
+  height: 5vh;
   color: #fff;
-  border-bottom: 3px solid #26282c;
+  border-bottom: 1px solid #26282c;
 }
 
 .sidebar__channels {

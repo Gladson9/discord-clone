@@ -8,13 +8,13 @@ import Chat from "./parts/Chat";
 import { login, logout, selectUser } from "./features/userSlice";
 import Login from "./parts/Login";
 import { auth } from "./firebase";
+import Servers from "./parts/Servers";
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log(authUser);
       if (authUser) {
         dispatch(
           login({
@@ -34,6 +34,7 @@ function App() {
     <div className="app">
       {user ? (
         <>
+          <Servers />
           <Sidebar />
           <Chat />
         </>
