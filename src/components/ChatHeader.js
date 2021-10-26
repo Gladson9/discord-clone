@@ -9,12 +9,11 @@ import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 import { useSelector } from "react-redux";
 import { selectServer } from "../features/serverSlice";
 
-const ChatHeader = ({ channelName, setUsersToggle, usersToggle }) => {
+const ChatHeader = ({ setUsersToggle, usersToggle, channelName }) => {
   const handleToggle = () => {
     setUsersToggle(usersToggle ? "" : "hidden");
   };
   const currentServer = useSelector(selectServer);
-
   return (
     <div className="chat__header">
       {currentServer && (

@@ -3,6 +3,8 @@
   align-items: center;
   padding: 20px;
   color: #fff;
+  position: relative;
+  margin-top: 0.5rem;
 }
 
 .message__info {
@@ -13,4 +15,20 @@
   color: gray;
   margin-left: 20px;
   font-size: x-small;
+}
+
+.message:hover {
+  background-color: #32353b;
+}
+
+.message__menu {
+  background-color: #3a3e44;
+  position: absolute;
+  right: 30px;
+  top: -10px;
+}
+.message__menu > .MuiSvgIcon-root {
+  color: #c03537;
+  padding: 0.1rem;
+  cursor: pointer;
 }

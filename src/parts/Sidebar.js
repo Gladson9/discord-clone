@@ -11,6 +11,7 @@ import { auth } from "../firebase";
 import db from "./../firebase";
 import AddChannelModal from "../components/AddChannelModal";
 import { selectServer } from "../features/serverSlice";
+import ServerInfo from "../components/ServerInfo";
 
 const Sidebar = () => {
   const user = useSelector(selectUser);
@@ -39,10 +40,11 @@ const Sidebar = () => {
         );
       setServerOwner(user.uid === currentServer.server.createdBy.uid);
     }
-  }, [currentServer]);
+  }, [currentServer, user.uid]);
   return (
     <div className="sidebar">
-      <div className="sidebar__top">
+      <ServerInfo currentServer={currentServer} serverOwner={serverOwner} />
+      {/* <div className="sidebar__top">
         {currentServer ? (
           <>
             <h3>{currentServer.server.serverName}</h3>
@@ -51,7 +53,7 @@ const Sidebar = () => {
         ) : (
           ""
         )}
-      </div>
+      </div> */}
       {currentServer && (
         <div className="sidebar__channels">
           <div className="sidebar__channel__header">
@@ -72,6 +74,8 @@ const Sidebar = () => {
                 key={id}
                 id={id}
                 channelName={channel.channelName}
+                serverOwner={serverOwner}
+                currentServer={currentServer}
               />
             ))}
           </div>

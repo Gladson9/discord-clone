@@ -15,6 +15,7 @@
   height: 5vh;
   color: #fff;
   border-bottom: 1px solid #26282c;
+  position: relative;
 }
 
 .sidebar__channels {
@@ -63,5 +64,22 @@
 .sidebar__profile__icons > .MuiSvgIcon-root {
   color: #ff4646bf;
   font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.sidebar__top > .MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.sidebar__server__menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: -35px;
+  background-color: #18191c;
+  width: 80%;
+  border-radius: 0.2rem;
+  color: #ff4646bf;
   cursor: pointer;
 }

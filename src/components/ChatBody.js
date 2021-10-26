@@ -9,7 +9,6 @@ import firebase from "firebase";
 
 // redux
 import { selectUser } from "./../features/userSlice";
-import { selectChannelId, selectChannelName } from "./../features/appSlice";
 import { selectServer } from "../features/serverSlice";
 import { useSelector } from "react-redux";
 
@@ -17,10 +16,8 @@ import { useSelector } from "react-redux";
 import Users from "./Users";
 import Message from "./Message";
 
-const ChatBody = ({ usersToggle }) => {
+const ChatBody = ({ usersToggle, channelName, channelId }) => {
   const currentUser = useSelector(selectUser);
-  const channelId = useSelector(selectChannelId);
-  const channelName = useSelector(selectChannelName);
   const currentServer = useSelector(selectServer);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
@@ -38,7 +35,6 @@ const ChatBody = ({ usersToggle }) => {
         }
       });
       if (!userExists) {
-        console.log("Inside If", userExists);
         users.add(currentUser);
       }
     });
@@ -69,11 +65,14 @@ const ChatBody = ({ usersToggle }) => {
         .collection("channels")
         .doc(channelId)
         .collection("messages");
-      currentChannelRef
-        .orderBy("timestamp", "asc")
-        .onSnapshot((snapshot) =>
-          setMessages(snapshot.docs.map((doc) => doc.data()))
+      currentChannelRef.orderBy("timestamp", "asc").onSnapshot((snapshot) => {
+        // console.log(snapshot.docs.map((doc) => console.log(doc.id)));
+        return setMessages(
+          snapshot.docs.map((doc) => {
+            return { id: doc.id, data: doc.data() };
+          })
         );
+      });
     }
   }, [channelId, currentServer]);
 
@@ -85,9 +84,10 @@ const ChatBody = ({ usersToggle }) => {
             messages.map((message, index) => (
               <Message
                 key={index}
-                timestamp={message.timestamp}
-                message={message.message}
-                user={message.user}
+                timestamp={message.data.timestamp}
+                message={message.data.message}
+                user={message.data.user}
+                id={message.id}
               />
             ))}
         </div>
