@@ -6,16 +6,22 @@
   background-color: #35383e;
 }
 
-.login > button {
+.login__btns > button {
   width: 300px;
   background-color: #5765f2;
   color: #fff;
   font-weight: 500;
+  margin-top: 2rem;
 }
 
-.login > button:hover {
+.login__btns > button:hover {
   width: 300px;
   color: #fff;
   background-color: #757fee;
   font-weight: 500;
+}
+
+.login__btns {
+  display: flex;
+  flex-direction: column;
 }

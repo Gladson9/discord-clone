@@ -16,6 +16,11 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
+        // authUser.updateProfile({
+        //   displayName: "Guest",
+        //   photoURL:
+        //     "https://avatars.dicebear.com/api/initials/G.svg?b=%237a7a7a&scale=139&translateX=-1",
+        // });
         dispatch(
           login({
             uid: authUser.uid,

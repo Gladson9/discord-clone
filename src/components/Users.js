@@ -36,7 +36,7 @@ const Users = ({ usersToggle }) => {
       )}
       <h4 className="users__type">Users</h4>
       {currentServer &&
-        users.forEach((user) => {
+        users?.map((user) => {
           if (user.uid !== serverOwner.uid) {
             return (
               <User

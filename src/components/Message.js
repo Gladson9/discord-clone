@@ -32,7 +32,7 @@ const Message = ({ timestamp, user, message, id }) => {
       .then(() => {
         console.log("Message Deleted Successfully");
       })
-      .catch((err) => console.log("Message deletion failde", err));
+      .catch((err) => console.log("Message deletion failed", err));
   };
 
   return (

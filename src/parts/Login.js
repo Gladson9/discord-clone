@@ -10,12 +10,21 @@ const Login = () => {
     auth.signInWithPopup(provider).catch((err) => console.log("Error", err));
   };
 
+  const signInGuest = () => {
+    auth
+      .signInWithEmailAndPassword("guest@discord.com", "guest@discord")
+      .catch((err) => console.log("Signin Error", err));
+  };
+
   return (
     <div className="login">
       <div className="login__logo">
         <img src={logo} alt="Discord Logo" />
       </div>
-      <Button onClick={signIn}>Sign In</Button>
+      <div className="login__btns">
+        <Button onClick={signIn}>Sign In</Button>
+        <Button onClick={signInGuest}>Log In as guest</Button>
+      </div>
     </div>
   );
 };

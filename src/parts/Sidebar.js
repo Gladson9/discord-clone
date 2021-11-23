@@ -84,7 +84,7 @@ const Sidebar = () => {
       <div className="sidebar__profile">
         <Avatar src={user.photo} />
         <div className="sidebar__profile__info">
-          <h3>{user.displayName.split(" ")[0]}</h3>
+          <h3>{user.displayName?.split(" ")[0]}</h3>
           <p>#{user.uid.substring(0, 5)}</p>
         </div>
         <div className="sidebar__profile__icons">
