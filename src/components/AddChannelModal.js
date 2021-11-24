@@ -32,6 +32,8 @@ const AddChannelModal = ({ handelOnClick }) => {
   return (
     <Backdrop onClick={handelOnClick}>
       <div className="modal__add__channel" onClick={(e) => e.stopPropagation()}>
+        <h2>Create Channel</h2>
+
         <form>
           <input
             value={input}

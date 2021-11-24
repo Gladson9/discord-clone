@@ -9,6 +9,7 @@
 
 .message__info {
   margin-left: 20px;
+  width: 100%;
 }
 
 .message__timestamp {
@@ -26,9 +27,52 @@
   position: absolute;
   right: 30px;
   top: -10px;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
 }
-.message__menu > .MuiSvgIcon-root {
+.delete__icon {
   color: #c03537;
-  padding: 0.1rem;
+  padding: 0.2rem;
   cursor: pointer;
+}
+.delete__icon:hover {
+  color: #a72f31;
+}
+.edit__icon {
+  color: #808183;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.edit__icon:hover {
+  color: #666363;
+}
+
+.edit__input__box {
+  background-color: #40444b;
+  border-radius: 5px;
+  width: 97%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: #fff;
+  margin-top: 0.2rem;
+}
+
+.edited__span_message {
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.edit__instructions {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.edit__instructions_link {
+  color: #5880ec;
+  cursor: pointer;
+}
+.edit__instructions_link:hover {
+  text-decoration: underline;
 }

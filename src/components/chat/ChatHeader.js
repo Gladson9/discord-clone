@@ -1,13 +1,13 @@
 import React from "react";
 
-import "../assets/styles/chatHeader.css";
+import "../../assets/styles/chatHeader.css";
 
 import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
+// import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+// import SendRoundedIcon from "@mui/icons-material/SendRounded";
+// import HelpRoundedIcon from "@mui/icons-material/HelpRounded";
 import { useSelector } from "react-redux";
-import { selectServer } from "../features/serverSlice";
+import { selectServer } from "../../features/serverSlice";
 
 const ChatHeader = ({ setUsersToggle, usersToggle, channelName }) => {
   const handleToggle = () => {
@@ -26,12 +26,12 @@ const ChatHeader = ({ setUsersToggle, usersToggle, channelName }) => {
           </div>
           <div className="chat__header__right">
             <PeopleAltRoundedIcon onClick={handleToggle} />
-            <div className="chat__header__search">
+            {/* <div className="chat__header__search">
               <input type="text" placeholder="Search" />
               <SearchRoundedIcon titleAccess="Under Development" />
-            </div>
-            <SendRoundedIcon />
-            <HelpRoundedIcon />
+            </div> */}
+            {/* <SendRoundedIcon /> */}
+            {/* <HelpRoundedIcon /> */}
           </div>
         </>
       )}

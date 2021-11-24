@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
 // Icons
 import GifRoundedIcon from "@mui/icons-material/GifRounded";
 import InsertEmoticonRoundedIcon from "@mui/icons-material/InsertEmoticonRounded";
-import "../assets/styles/chat.css";
-// Firebase and firestore
-import db from "./../firebase";
 import firebase from "firebase";
-
-// redux
-import { selectUser } from "./../features/userSlice";
-import { selectServer } from "../features/serverSlice";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { selectServer } from "../../features/serverSlice";
+// redux
+import { selectUser } from "../../features/userSlice";
+// Firebase and firestore
+import db from "../../firebase";
+import "../../assets/styles/chat.css";
+import Message from "../Message";
 // Components
-import Users from "./Users";
-import Message from "./Message";
+import Users from "../Users";
 
 const ChatBody = ({ usersToggle, channelName, channelId }) => {
   const currentUser = useSelector(selectUser);
@@ -48,12 +46,14 @@ const ChatBody = ({ usersToggle, channelName, channelId }) => {
       .collection("messages");
 
     e.preventDefault();
-
-    currentChannelRef.add({
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      message: input,
-      user: currentUser,
-    });
+    if (input.trim().length !== 0) {
+      console.log("Message Added");
+      currentChannelRef.add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message: input,
+        user: currentUser,
+      });
+    }
     checkUserInServer();
     setInput("");
   };
@@ -80,16 +80,22 @@ const ChatBody = ({ usersToggle, channelName, channelId }) => {
     <div className="container">
       <div className="chat__body">
         <div className="chat__messages">
-          {currentServer &&
+          {currentServer ? (
             messages.map((message, index) => (
               <Message
                 key={index}
                 timestamp={message.data.timestamp}
                 message={message.data.message}
                 user={message.data.user}
+                edited={message.data.edited}
                 id={message.id}
               />
-            ))}
+            ))
+          ) : (
+            <h2 className="use__instructions">
+              Select a server from the left sidebar to start using.
+            </h2>
+          )}
         </div>
         {currentServer && (
           <div className="chat__input">

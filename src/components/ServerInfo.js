@@ -38,7 +38,7 @@ const ServerInfo = ({ currentServer, serverOwner }) => {
       ) : (
         ""
       )}
-      {menuOpened && (
+      {menuOpened && serverOwner && (
         <div className="sidebar__server__menu" onClick={deleteServer}>
           <h4>Delete Server</h4>
           <DeleteIcon />

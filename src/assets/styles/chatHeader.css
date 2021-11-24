@@ -20,8 +20,9 @@
 }
 .chat__header__right {
   display: flex;
-  width: 20%;
+  /* width: 20%; */
   justify-content: space-evenly;
+  margin-right: 1rem;
 }
 .chat__header__right > .MuiSvgIcon-root {
   padding: 5px;

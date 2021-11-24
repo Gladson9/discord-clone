@@ -12,12 +12,14 @@ import db from "./../firebase";
 import AddChannelModal from "../components/AddChannelModal";
 import { selectServer } from "../features/serverSlice";
 import ServerInfo from "../components/ServerInfo";
+import { setChannelInfo } from "../features/appSlice";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
   const user = useSelector(selectUser);
   const currentServer = useSelector(selectServer);
   const [channels, setChannels] = useState([]);
-
+  const dispatch = useDispatch();
   // Open and close add channel modal
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
@@ -41,6 +43,18 @@ const Sidebar = () => {
       setServerOwner(user.uid === currentServer.server.createdBy.uid);
     }
   }, [currentServer, user.uid]);
+
+  useEffect(() => {
+    if (channels[0]) {
+      dispatch(
+        setChannelInfo({
+          channelId: channels[0].id,
+          channelName: channels[0].channel.channelName,
+        })
+      );
+    }
+  }, [channels]);
+
   return (
     <div className="sidebar">
       <ServerInfo currentServer={currentServer} serverOwner={serverOwner} />

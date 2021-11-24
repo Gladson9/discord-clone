@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-// Components
-import ChatHeader from "./../components/ChatHeader";
-
+import { useSelector } from "react-redux";
 // Styles and Icons
 import "../assets/styles/chat.css";
-import { useSelector } from "react-redux";
+import ChatBody from "../components/chat/ChatBody";
+// Components
+import ChatHeader from "./../components/chat/ChatHeader";
 import { selectChannelId, selectChannelName } from "./../features/appSlice";
-import ChatBody from "../components/ChatBody";
 
 const Chat = () => {
   const [usersToggle, setUsersToggle] = useState("hidden");

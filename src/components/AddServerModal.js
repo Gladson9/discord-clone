@@ -11,10 +11,16 @@ const AddServerModal = ({ handelOnClick }) => {
   const handleAddServer = (e) => {
     e.preventDefault();
     if (input) {
-      db.collection("servers").add({
-        serverName: input,
-        createdBy: user,
-      });
+      db.collection("servers")
+        .add({
+          serverName: input,
+          createdBy: user,
+        })
+        .then((data) => {
+          data.collection("channels").add({
+            channelName: "general",
+          });
+        });
     }
     handelOnClick();
   };
@@ -26,6 +32,7 @@ const AddServerModal = ({ handelOnClick }) => {
   return (
     <Backdrop onClick={handelOnClick}>
       <div className="modal__add__channel" onClick={(e) => e.stopPropagation()}>
+        <h2>Create Server</h2>
         <form>
           <input
             value={input}

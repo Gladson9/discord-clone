@@ -7,7 +7,7 @@
 }
 .container {
   display: flex;
-  height: 94vh;
+  height: 94%;
 }
 .chat__body {
   display: flex;
@@ -65,4 +65,9 @@
 .chat__input__icons > .MuiSvgIcon-root {
   cursor: pointer;
   padding: 5px;
+}
+
+.use__instructions {
+  color: #fff;
+  margin-left: 2rem;
 }
